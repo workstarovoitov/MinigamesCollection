@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{03478839-011a-4c4d-97be-7ade4b411ca1}">
+		<property name="assetPath">
+			<value>SexSceneTutoria/SexSceneTutoria_VA/TutoriaBarks_TooSoft_GiveMeMorePlease.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.8471655328798189</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20ac507a-d205-4d00-8c11-83e1db30033a}</destination>
+		</relationship>
+	</object>
+</objects>

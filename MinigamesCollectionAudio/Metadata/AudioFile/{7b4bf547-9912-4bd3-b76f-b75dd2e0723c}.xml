@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7b4bf547-9912-4bd3-b76f-b75dd2e0723c}">
+		<property name="assetPath">
+			<value>SexSceneNovaCablecart/NovaCablecart VA/06_Decision1B-Skippable-FirstTime.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>25.111224489795919</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20ac507a-d205-4d00-8c11-83e1db30033a}</destination>
+		</relationship>
+	</object>
+</objects>

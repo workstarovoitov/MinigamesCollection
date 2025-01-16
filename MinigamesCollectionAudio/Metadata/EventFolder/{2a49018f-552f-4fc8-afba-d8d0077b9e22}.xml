@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{2a49018f-552f-4fc8-afba-d8d0077b9e22}">
+		<property name="name">
+			<value>SteamrollDream</value>
+		</property>
+		<relationship name="folder">
+			<destination>{081ccce0-5090-403f-9e74-c2820d09160d}</destination>
+		</relationship>
+	</object>
+</objects>

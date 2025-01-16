@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{6c2898c6-98f0-425a-b498-c658b20351df}">
+		<property name="name">
+			<value>Minigames</value>
+		</property>
+		<relationship name="folder">
+			<destination>{626fcaf9-86ab-45d5-9779-de809d05cf39}</destination>
+		</relationship>
+	</object>
+</objects>

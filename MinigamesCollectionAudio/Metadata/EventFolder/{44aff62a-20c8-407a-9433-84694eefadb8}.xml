@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{44aff62a-20c8-407a-9433-84694eefadb8}">
+		<property name="name">
+			<value>EngiDeepTalk</value>
+		</property>
+		<relationship name="folder">
+			<destination>{081ccce0-5090-403f-9e74-c2820d09160d}</destination>
+		</relationship>
+	</object>
+</objects>

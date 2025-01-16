@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{353a0bb3-7c8a-42ed-ac55-27ff42233fdb}">
+		<property name="name">
+			<value>CogsActive</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5f1ba00e-a4bd-473b-9efa-1b3d872fb9a4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d1bd98cd-415f-4010-b08c-cbbd3ecff3db}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d1bd98cd-415f-4010-b08c-cbbd3ecff3db}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

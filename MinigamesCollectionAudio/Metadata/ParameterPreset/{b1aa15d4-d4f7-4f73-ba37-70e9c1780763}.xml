@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b1aa15d4-d4f7-4f73-ba37-70e9c1780763}">
+		<property name="name">
+			<value>CameraMovement</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5f1ba00e-a4bd-473b-9efa-1b3d872fb9a4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4b111fd7-f77c-475f-aaaa-a5dbd1b23cfd}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4b111fd7-f77c-475f-aaaa-a5dbd1b23cfd}">
+		<property name="parameterType">
+			<value>8</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

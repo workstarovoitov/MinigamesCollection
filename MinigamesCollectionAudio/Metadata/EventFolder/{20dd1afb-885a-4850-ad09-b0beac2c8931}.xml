@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{20dd1afb-885a-4850-ad09-b0beac2c8931}">
+		<property name="name">
+			<value>ObservatoryHOPA</value>
+		</property>
+		<relationship name="folder">
+			<destination>{adf8ddc7-d32e-468b-a84e-28f1513e3a93}</destination>
+		</relationship>
+	</object>
+</objects>

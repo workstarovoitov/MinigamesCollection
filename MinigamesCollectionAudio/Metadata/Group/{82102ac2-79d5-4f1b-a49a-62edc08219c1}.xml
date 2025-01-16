@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{82102ac2-79d5-4f1b-a49a-62edc08219c1}">
+		<property name="name">
+			<value>VO</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{396b5879-8352-451f-8440-0c9ad8b527bf}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{fd9865b0-19c2-4be0-bf44-cfc70e8e0a74}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{a33d15f2-5b90-47ed-93aa-3f6a6771d355}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{396b5879-8352-451f-8440-0c9ad8b527bf}">
+		<relationship name="effects">
+			<destination>{fb2c4d04-00b0-4924-bc0b-0a7db910050b}</destination>
+			<destination>{caf54b71-cefc-490d-b476-474754707063}</destination>
+			<destination>{2da83e71-91e4-41d4-9ec4-339a9c6bceee}</destination>
+			<destination>{7cd79f1d-fb0b-44e8-b47a-bde4d685c293}</destination>
+			<destination>{4efd1d9f-36c2-4682-b588-c7acc2dfe5e8}</destination>
+			<destination>{f787d892-0d84-42fe-8576-2d331cfc5f93}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{fd9865b0-19c2-4be0-bf44-cfc70e8e0a74}" />
+	<object class="MixerBusFader" id="{fb2c4d04-00b0-4924-bc0b-0a7db910050b}" />
+	<object class="Sidechain" id="{caf54b71-cefc-490d-b476-474754707063}" />
+	<object class="ConvolutionReverbEffect" id="{2da83e71-91e4-41d4-9ec4-339a9c6bceee}">
+		<property name="endFrame">
+			<value>18438</value>
+		</property>
+		<property name="wetLevel">
+			<value>-80</value>
+		</property>
+		<property name="dryLevel">
+			<value>0</value>
+		</property>
+		<relationship name="referenceableData">
+			<destination>{617c77b0-c22d-4ee0-8c67-c52e4d95c064}</destination>
+		</relationship>
+	</object>
+	<object class="LowpassSimpleEffect" id="{7cd79f1d-fb0b-44e8-b47a-bde4d685c293}">
+		<property name="cutoff">
+			<value>22000</value>
+		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{4efd1d9f-36c2-4682-b588-c7acc2dfe5e8}" />
+	<object class="CompressorEffect" id="{f787d892-0d84-42fe-8576-2d331cfc5f93}">
+		<property name="threshold">
+			<value>-19</value>
+		</property>
+		<property name="ratio">
+			<value>1.95000005</value>
+		</property>
+		<property name="attackTime">
+			<value>1</value>
+		</property>
+		<property name="gain">
+			<value>2</value>
+		</property>
+	</object>
+</objects>

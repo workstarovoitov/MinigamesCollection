@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5c7754ac-ea2b-4050-b147-7d23a6f1c5f5}">
+		<property name="name">
+			<value>SqueaksIntensity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5f1ba00e-a4bd-473b-9efa-1b3d872fb9a4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{be2872a7-af4c-4d6d-918d-b8d3d7e53cfe}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{be2872a7-af4c-4d6d-918d-b8d3d7e53cfe}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

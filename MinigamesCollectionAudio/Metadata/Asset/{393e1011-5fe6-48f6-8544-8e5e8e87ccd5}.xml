@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{393e1011-5fe6-48f6-8544-8e5e8e87ccd5}">
+		<property name="assetPath">
+			<value>SexSceneTutoria/SexSceneTutoria_Music&amp;Amb/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20ac507a-d205-4d00-8c11-83e1db30033a}</destination>
+		</relationship>
+	</object>
+</objects>

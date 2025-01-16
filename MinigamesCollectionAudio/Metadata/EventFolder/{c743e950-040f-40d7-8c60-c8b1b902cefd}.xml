@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{c743e950-040f-40d7-8c60-c8b1b902cefd}">
+		<property name="name">
+			<value>NovaCablecart</value>
+		</property>
+		<relationship name="folder">
+			<destination>{f9e6efae-d383-4954-aba3-6e2f8c72a1fb}</destination>
+		</relationship>
+	</object>
+</objects>
