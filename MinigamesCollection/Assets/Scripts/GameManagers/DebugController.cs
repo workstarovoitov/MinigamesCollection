@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Architecture;
 
 public enum MessageCategory
 {
@@ -7,7 +8,7 @@ public enum MessageCategory
 }
 
 [ExecuteAlways]
-public class DebugController : MonoBehaviour
+public class DebugController : MonoBehaviour, IService
 {
     [SerializeField] private bool debugEnabled = true;
     public bool DebugEnabled { get => debugEnabled; }
@@ -30,6 +31,11 @@ public class DebugController : MonoBehaviour
         { MessageCategory.Rig, "<color=#1ABC9C>" },
         { MessageCategory.Progress, "<color=#F39C12>" },
     };
+    
+    public void Initialize()
+    {
+        // Initialization logic here
+    }
 
     void OnValidate()
     {

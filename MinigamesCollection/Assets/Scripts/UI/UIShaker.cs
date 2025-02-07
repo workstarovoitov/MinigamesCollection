@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using System;
+using Architecture;
 
 public class UIShaker : MonoBehaviour
 {

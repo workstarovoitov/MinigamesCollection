@@ -1,8 +1,8 @@
 using UnityEngine;
 using FMOD.Studio;
-using UnityEngine.Audio;
+using Architecture;
 
-public class SettingsController : MonoBehaviour
+public class SettingsController : MonoBehaviour, IService
 {
     [Header("Language")]
     [SerializeField] private string[] languages;
@@ -131,6 +131,11 @@ public class SettingsController : MonoBehaviour
         fullscreenMode = PlayerPrefs.HasKey("fullscreenMode") ? PlayerPrefs.GetInt("fullscreenMode") : 1;
         currentResIndex = PlayerPrefs.HasKey("resIndex") ? PlayerPrefs.GetInt("resIndex") : 0;
         UpdateVideoSettings();
+    }
+
+    public void Initialize()
+    {
+        // Initialization logic here
     }
 
     public void UpdateVideoSettings()

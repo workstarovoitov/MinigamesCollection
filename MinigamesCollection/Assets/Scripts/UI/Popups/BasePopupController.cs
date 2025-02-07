@@ -3,8 +3,9 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using FMODUnity;
 using UnityEngine.InputSystem;
+using Architecture;
 
-public class BasePopupController : MonoBehaviour 
+public class BasePopupController : MonoBehaviour
 {
     [SerializeField] internal EventReference openSFX;
     [SerializeField] internal EventReference closeSFX;
@@ -15,7 +16,7 @@ public class BasePopupController : MonoBehaviour
     [SerializeField] private bool showOnStart = false;
     [SerializeField] private bool pausesGame = true;
     [SerializeField] private bool blocksPrevious = true;
-    public bool PausesGame { get =>  pausesGame;}
+    public bool PausesGame { get => pausesGame; }
     public bool BlocksPrevious { get => blocksPrevious; }
     [SerializeField] private bool skipOnAnyKey = false;
     [SerializeField] private bool skipOnSpace = false;
@@ -33,28 +34,32 @@ public class BasePopupController : MonoBehaviour
     {
         fader = GetComponent<UIAlphaFader>();
 
-        actionCancel = GameManager.Instance.InputController.Actions.UI.Cancel;
-        if (cancelButton != null)
+        var inputController = ServiceLocator.Get<InputController>();
+        if (inputController != null)
         {
-            actionCancel.performed += BackPerformed;
-            actionCancel.Enable();
-        }
-        else
-        {
-            actionCancel.performed += HideWindow;
-        }
+            actionCancel = inputController.Actions.UI.Cancel;
+            if (cancelButton != null)
+            {
+                actionCancel.performed += BackPerformed;
+                actionCancel.Enable();
+            }
+            else
+            {
+                actionCancel.performed += HideWindow;
+            }
 
-        if (skipOnAnyKey)
-        {
-            actionAnykey = GameManager.Instance.InputController.Actions.UI.Anykey;
-            actionAnykey.performed += HideWindow;
-            actionAnykey.Enable();
-        }
-        if (skipOnSpace)
-        {
-            actionSubmit = GameManager.Instance.InputController.Actions.UI.Submit;
-            actionSubmit.performed += HideWindow;
-            actionSubmit.Enable();
+            if (skipOnAnyKey)
+            {
+                actionAnykey = inputController.Actions.UI.Anykey;
+                actionAnykey.performed += HideWindow;
+                actionAnykey.Enable();
+            }
+            if (skipOnSpace)
+            {
+                actionSubmit = inputController.Actions.UI.Submit;
+                actionSubmit.performed += HideWindow;
+                actionSubmit.Enable();
+            }
         }
     }
 
@@ -75,11 +80,11 @@ public class BasePopupController : MonoBehaviour
     {
         HideWindow();
     }
-    
+
     public virtual void HideWindow()
     {
         CancelInvoke(nameof(HideWindow));
-        SoundManager.Instance.Shoot(closeSFX);
+        ServiceLocator.Get<SoundManager>()?.Shoot(closeSFX);
         foreach (Button button in GetComponentsInChildren<Button>())
         {
             button.interactable = false;
@@ -89,7 +94,7 @@ public class BasePopupController : MonoBehaviour
         {
             fader.RunAnimationFadeOut(() =>
             {
-                GameManager.Instance.PopupController.RemovePopup(this);
+                ServiceLocator.Get<PopupsManager>()?.RemovePopup(this);
 
                 onClose?.Invoke();
                 gameObject.SetActive(false);
@@ -98,7 +103,7 @@ public class BasePopupController : MonoBehaviour
             return;
         }
 
-        GameManager.Instance.PopupController.RemovePopup(this);
+        ServiceLocator.Get<PopupsManager>()?.RemovePopup(this);
 
         onClose?.Invoke();
         gameObject.SetActive(false);
@@ -107,18 +112,19 @@ public class BasePopupController : MonoBehaviour
     public virtual void HideWindowSilent()
     {
         CancelInvoke(nameof(HideWindow));
-        GameManager.Instance.PopupController.RemovePopup(this);
+        ServiceLocator.Get<PopupsManager>()?.RemovePopup(this);
         gameObject.SetActive(false);
     }
 
     public virtual void ShowWindow()
     {
-        if (GameManager.Instance.PopupController.IsOpened(this)) return;
+        var popupController = ServiceLocator.Get<PopupsManager>();
+        if (popupController != null && popupController.IsOpened(this)) return;
 
-        GameManager.Instance.PopupController.AddPopup(this);
+        popupController?.AddPopup(this);
         gameObject.SetActive(true);
         if (fader) fader.RunAnimationFadeIn();
-        SoundManager.Instance.Shoot(openSFX);
+        ServiceLocator.Get<SoundManager>()?.Shoot(openSFX);
         onOpen?.Invoke();
         foreach (Button button in GetComponentsInChildren<Button>())
         {
@@ -133,13 +139,13 @@ public class BasePopupController : MonoBehaviour
         if (cancelButton != null) cancelButton.onClick.Invoke();
     }
 
-    public void FireEvent(GameEvent gameEvent) 
+    public void FireEvent(GameEvent gameEvent)
     {
         gameEvent?.Invoke();
     }
 
     public void ShootSFX(string sfxPath)
     {
-        SoundManager.Instance.Shoot(sfxPath);
+        ServiceLocator.Get<SoundManager>()?.Shoot(sfxPath);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Architecture;
 
 [System.Serializable]
 public class PopupSpawnEvent
@@ -10,9 +11,14 @@ public class PopupSpawnEvent
     public bool pauseOn;
 }
 
-public class PopupsManager : MonoBehaviour
+public class PopupsManager : MonoBehaviour, IService
 {
     [SerializeField] private List<PopupSpawnEvent> popupMenus = new();
+
+    public void Initialize()
+    {
+        // Initialization logic here
+    }
 
     public void ClearPopupList()
     {
@@ -32,7 +38,7 @@ public class PopupsManager : MonoBehaviour
             }
         }
 
-        if (newPopup.PausesGame) GameManager.Instance.PauseController.PauseScene();
+        if (newPopup.PausesGame) ServiceLocator.Get<PauseController>()?.PauseScene();
         PopupSpawnEvent popupSpawnEvent = new PopupSpawnEvent();
         popupSpawnEvent.controller = newPopup;
         popupSpawnEvent.pauseOn = newPopup.PausesGame;
@@ -44,8 +50,8 @@ public class PopupsManager : MonoBehaviour
     {
         if (popupMenus.Count == 0) return;
         popupMenus[popupMenus.Count - 1].pauseOn = pauseOn;
-        if (pauseOn) GameManager.Instance.PauseController.PauseScene();
-        else GameManager.Instance.PauseController.UnpauseScene();
+        if (pauseOn) ServiceLocator.Get<PauseController>()?.PauseScene();
+        else ServiceLocator.Get<PauseController>()?.UnpauseScene();
     }
 
     public void RemovePopup(BasePopupController popup)
@@ -65,11 +71,11 @@ public class PopupsManager : MonoBehaviour
             {
                 popupMenu.controller.enabled = false;
             }
-            if (!popupMenus[popupMenus.Count - 1].pauseOn) GameManager.Instance.PauseController.UnpauseScene();
+            if (!popupMenus[popupMenus.Count - 1].pauseOn) ServiceLocator.Get<PauseController>()?.UnpauseScene();
         }
         else
         {
-            GameManager.Instance.PauseController.UnpauseScene();
+            ServiceLocator.Get<PauseController>()?.UnpauseScene();
         }
 
         StartCoroutine(EnableLastController());

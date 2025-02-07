@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using Architecture;
 
 public enum InputDeviceType
 {
@@ -20,12 +21,17 @@ public class KeyBindingPair
     public string bindingPath;
 }
 
-public class InputController : MonoBehaviour
+public class InputController : MonoBehaviour, IService
 {
     private InputActions actions;
     public InputActions Actions { get => actions; }
     [SerializeField] private InputDeviceType curentInputDevice;
     public InputDeviceType CurrentInputDevice { get => curentInputDevice; set => curentInputDevice = value; }
+
+    public void Initialize()
+    {
+        // Initialization logic here
+    }
 
     private void OnEnable()
     {

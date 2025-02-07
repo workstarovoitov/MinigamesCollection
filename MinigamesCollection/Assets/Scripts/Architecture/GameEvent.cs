@@ -1,27 +1,27 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-[CreateAssetMenu(fileName = "GameEvent", menuName = "Scriptable Objects/GameEvent")]
-public class GameEvent : ScriptableObject
+namespace Architecture
 {
-    [SerializeField] private AssetReference assetReference;
-    public AssetReference GetSelfReference()
+    [CreateAssetMenu(fileName = "GameEvent", menuName = "Scriptable Objects/GameEvent")]
+    public class GameEvent : ScriptableObject
     {
-        return assetReference;
-    }
+        [SerializeField] private AssetReference assetReference;
+        public AssetReference AssetReference => assetReference;
 
-    public void Invoke()
-    {
-        GameEventManager.Instance.InvokeEvent(assetReference);
-    }
+        public void Invoke()
+        {
+            GameEventManager.Instance.InvokeEvent(assetReference);
+        }
 
-    public void Register(GameEventsListener gameEventListener)
-    {
-        GameEventManager.Instance.Register(assetReference, gameEventListener);
-    }
+        public void Register(GameEventsListener gameEventListener)
+        {
+            GameEventManager.Instance.Register(assetReference, gameEventListener);
+        }
 
-    public void Deregister(GameEventsListener gameEventListener)
-    {
-        GameEventManager.Instance.Deregister(assetReference, gameEventListener);
+        public void Deregister(GameEventsListener gameEventListener)
+        {
+            GameEventManager.Instance.Deregister(assetReference, gameEventListener);
+        }
     }
 }

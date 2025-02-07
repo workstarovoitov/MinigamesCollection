@@ -1,32 +1,35 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventsListener : MonoBehaviour
+namespace Architecture
 {
-    [SerializeField] protected GameEvent[] _gameEvents;
-    [SerializeField] protected UnityEvent _unityEvent;
-
-    void OnEnable()
+    public class GameEventsListener : MonoBehaviour
     {
-        foreach (var gameEvent in _gameEvents)
+        [SerializeField] protected GameEvent[] _gameEvents;
+        [SerializeField] protected UnityEvent _unityEvent;
+
+        void OnEnable()
         {
-            gameEvent.Register(this);
+            foreach (var gameEvent in _gameEvents)
+            {
+                gameEvent.Register(this);
+            }
         }
-    }
 
-    void OnDisable()
-    {
-        foreach (var gameEvent in _gameEvents)
+        void OnDisable()
         {
-            gameEvent.Deregister(this);
+            foreach (var gameEvent in _gameEvents)
+            {
+                gameEvent.Deregister(this);
+            }
         }
-    }
 
-    public void RaiseEvent()
-    {
-        if (gameObject.activeSelf)
+        public void RaiseEvent()
         {
-            _unityEvent.Invoke();
+            if (gameObject.activeSelf)
+            {
+                _unityEvent.Invoke();
+            }
         }
     }
 }

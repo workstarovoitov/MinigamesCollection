@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using System;
+using Architecture;
 
 public enum FadeState
 {

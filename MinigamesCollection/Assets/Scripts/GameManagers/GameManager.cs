@@ -4,39 +4,24 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>, IService
 {
-    private SettingsController settingsController;
-    public SettingsController SettingsController { get => settingsController; }
-
-    private InputController inputController;
-    public InputController InputController { get => inputController; }
-
-    private DebugController debugController;
-    public DebugController DebugController { get => debugController; }
-
-    private PopupsManager popupController;
-    public PopupsManager PopupController { get => popupController; }
-
-    private PauseController pauseController;
-    public PauseController PauseController { get => pauseController; }
-
     private ScenarioEntity currentScenario;
     public ScenarioEntity CurrentScenario { get => currentScenario; }
     ScenarioEntity nextScenario;
     private GameObject content;
     private bool forcedTransition;
-    public bool DebugEnabled { get => debugController.DebugEnabled; }
+    public bool DebugEnabled { get => ServiceLocator.Get<DebugController>()?.DebugEnabled ?? false; }
 
     [SerializeField] private ScenarioEntity transitionToMenu;
 
-    [SerializeField] private GameEvent contentReady;
+    //[SerializeField] private GameEvent contentReady;
     [SerializeField] private GameEvent sceneReady;
 
     void Awake()
     {
         SceneManager.activeSceneChanged += OnSceneWasLoaded;
-        InitializeControllers();
+        RegisterServices();
     }
 
     void OnDestroy()
@@ -44,13 +29,14 @@ public class GameManager : Singleton<GameManager>
         SceneManager.activeSceneChanged -= OnSceneWasLoaded;
     }
 
+    public void Initialize()
+    {
+        // Initialization logic here
+    }
+
     private void OnSceneWasLoaded(Scene oldScene, Scene newScene)
     {
-        if (currentScenario.ContentPrefab != null)
-        {
-            content = Instantiate(currentScenario.ContentPrefab);
-        }
-        contentReady?.Invoke();
+        //contentReady?.Invoke();
     }
 
     private void SetNextScenario(ScenarioEntity scenario)
@@ -64,13 +50,9 @@ public class GameManager : Singleton<GameManager>
         LoadScene();
     }
 
-    private void InitializeControllers()
+    private void RegisterServices()
     {
-        settingsController = GetComponentInChildren<SettingsController>();
-        inputController = GetComponentInChildren<InputController>();
-        debugController = GetComponentInChildren<DebugController>();
-        popupController = GetComponentInChildren<PopupsManager>();
-        pauseController = GetComponentInChildren<PauseController>();
+        ServiceLocator.Register(this);
     }
 
     private void SetScenario(ScenarioEntity newScenario)
@@ -181,5 +163,9 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
-    public void Log(string message, MessageCategory entry = MessageCategory.Undefined) => debugController.Log(message, entry);
+    public void Log(string message, MessageCategory entry = MessageCategory.Undefined)
+    {
+        var debugController = ServiceLocator.Get<DebugController>();
+        debugController?.Log(message, entry);
+    }
 }

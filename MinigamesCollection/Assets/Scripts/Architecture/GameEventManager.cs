@@ -1,45 +1,47 @@
-using Architecture;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-public class GameEventManager : Singleton<GameEventManager>
+namespace Architecture
 {
-    private Dictionary<AssetReference, List<GameEventsListener>> _listeners = new();
-
-    public void Register(AssetReference gameEvent, GameEventsListener listener)
+    public class GameEventManager : Singleton<GameEventManager>
     {
-        if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
-        if (!_listeners.ContainsKey(gameEvent))
-        {
-            _listeners[gameEvent] = new();
-        }
-        if (!_listeners[gameEvent].Contains(listener))
-        {
-            _listeners[gameEvent].Add(listener);
-        }
-    }
+        private Dictionary<AssetReference, List<GameEventsListener>> _listeners = new();
 
-    public void Deregister(AssetReference gameEvent, GameEventsListener listener)
-    {
-        if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
-        if (_listeners.ContainsKey(gameEvent))
+        public void Register(AssetReference gameEvent, GameEventsListener listener)
         {
-            _listeners[gameEvent].Remove(listener);
-        }
-    }
-
-    public void InvokeEvent(AssetReference gameEvent)
-    {
-        if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
-
-        if (_listeners.ContainsKey(gameEvent))
-        {
-            var listenersSnapshot = new List<GameEventsListener>(_listeners[gameEvent]);
-            foreach (var listener in listenersSnapshot)
+            if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
+            if (!_listeners.ContainsKey(gameEvent))
             {
-                if (listener != null && listener.isActiveAndEnabled)
+                _listeners[gameEvent] = new();
+            }
+            if (!_listeners[gameEvent].Contains(listener))
+            {
+                _listeners[gameEvent].Add(listener);
+            }
+        }
+
+        public void Deregister(AssetReference gameEvent, GameEventsListener listener)
+        {
+            if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
+            if (_listeners.ContainsKey(gameEvent))
+            {
+                _listeners[gameEvent].Remove(listener);
+            }
+        }
+
+        public void InvokeEvent(AssetReference gameEvent)
+        {
+            if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
+
+            if (_listeners.ContainsKey(gameEvent))
+            {
+                var listenersSnapshot = new List<GameEventsListener>(_listeners[gameEvent]);
+                foreach (var listener in listenersSnapshot)
                 {
-                    listener.RaiseEvent();
+                    if (listener != null && listener.isActiveAndEnabled)
+                    {
+                        listener.RaiseEvent();
+                    }
                 }
             }
         }

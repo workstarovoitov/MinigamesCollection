@@ -1,7 +1,8 @@
 using UnityEngine;
 using System;
+using Architecture;
 
-public class PauseController : MonoBehaviour
+public class PauseController : MonoBehaviour, IService
 {
     public Action OnPause;
     public Action OnUnpause;
@@ -11,6 +12,11 @@ public class PauseController : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+    }
+
+    public void Initialize()
+    {
+        // Initialization logic here
     }
 
     public void PauseScene()

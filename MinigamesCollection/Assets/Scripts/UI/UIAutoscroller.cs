@@ -5,6 +5,14 @@ using UnityEngine.Events;
 using System;
 using System.Collections;
 using UnityEngine.InputSystem;
+using Architecture;
+
+public enum ScrollState
+{
+    Disabled,
+    ScrollToEnd,
+    ScrollToStart,
+}
 
 public class UIAutoscroller : MonoBehaviour
 {
@@ -52,10 +60,14 @@ public class UIAutoscroller : MonoBehaviour
 
     private void InitializeInputAction()
     {
-        scrollAction = GameManager.Instance.InputController.Actions.UI.ScrollSlider;
-        scrollAction.Enable();
-        scrollAction.performed += OnScrollPerformed;
-        scrollAction.canceled += OnScrollCanceled;
+        var inputController = ServiceLocator.Get<InputController>();
+        if (inputController != null)
+        {
+            scrollAction = inputController.Actions.UI.ScrollSlider;
+            scrollAction.Enable();
+            scrollAction.performed += OnScrollPerformed;
+            scrollAction.canceled += OnScrollCanceled;
+        }
     }
 
     private void OnScrollPerformed(InputAction.CallbackContext context)
@@ -154,11 +166,4 @@ public class UIAutoscroller : MonoBehaviour
         yield return new WaitForSecondsRealtime(startDelay);
         RunAnimation();
     }
-}
-
-public enum ScrollState
-{
-    Disabled,
-    ScrollToEnd,
-    ScrollToStart,
 }
