@@ -1,13 +1,14 @@
 using Architecture;
 using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
 
 public class GameEventManager : Singleton<GameEventManager>
 {
-    private Dictionary<string, List<GameEventsListener>> _listeners = new();
+    private Dictionary<AssetReference, List<GameEventsListener>> _listeners = new();
 
-    public void Register(string gameEvent, GameEventsListener listener)
+    public void Register(AssetReference gameEvent, GameEventsListener listener)
     {
-        if (string.IsNullOrEmpty(gameEvent)) return;
+        if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
         if (!_listeners.ContainsKey(gameEvent))
         {
             _listeners[gameEvent] = new();
@@ -18,23 +19,23 @@ public class GameEventManager : Singleton<GameEventManager>
         }
     }
 
-    public void Deregister(string gameEvent, GameEventsListener listener)
+    public void Deregister(AssetReference gameEvent, GameEventsListener listener)
     {
-        if (string.IsNullOrEmpty(gameEvent)) return;
+        if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
         if (_listeners.ContainsKey(gameEvent))
         {
             _listeners[gameEvent].Remove(listener);
         }
     }
 
-    public void InvokeEvent(string gameEvent)
+    public void InvokeEvent(AssetReference gameEvent)
     {
-        if (string.IsNullOrEmpty(gameEvent)) return;
+        if (gameEvent == null || !gameEvent.RuntimeKeyIsValid()) return;
 
         if (_listeners.ContainsKey(gameEvent))
         {
-            var listenersSnapshot2 = new List<GameEventsListener>(_listeners[gameEvent]);
-            foreach (var listener in listenersSnapshot2)
+            var listenersSnapshot = new List<GameEventsListener>(_listeners[gameEvent]);
+            foreach (var listener in listenersSnapshot)
             {
                 if (listener != null && listener.isActiveAndEnabled)
                 {

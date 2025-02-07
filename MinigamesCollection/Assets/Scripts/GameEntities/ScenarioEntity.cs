@@ -4,8 +4,7 @@ using UnityEngine.AddressableAssets;
 
 public enum SceneType { Default, Cutscene, Conversation, Minigame, ActionScene, Transition, Map, MainMenu };
 
-[CreateAssetMenu(menuName = "Scenario Entity", fileName = "New Scenario Entity")]
-
+[CreateAssetMenu(fileName = "ScenarioEntity", menuName = "Scriptable Objects/ScenarioEntity")]
 public class ScenarioEntity : ScriptableObject
 {
     [SerializeField] private AssetReference selfReference;
@@ -31,9 +30,6 @@ public class ScenarioEntity : ScriptableObject
     
     [field: SerializeField] private bool showEndTransition = true;
     public bool ShowEndTransition { get => showEndTransition; }
-
-    [field: SerializeField] private bool autosaveEnabled = true;
-    public bool AutosaveEnabled { get => autosaveEnabled; }
 
     [Header("Music settings")]
     [field: SerializeField] private EventReference backgroundMusic;

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6533bb23ce631b046923982d06aa208f, type: 3}
+  m_Name: ScenarioEntityGlyphs
+  m_EditorClassIdentifier: 
+  selfReference:
+    m_AssetGUID: 14938e82c5ce87f43918f686095713d5
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  scenarioPartTitle: 
+  scenarioPartDescription: 
+  backgroundSprite: {fileID: 0}
+  extraContent: {fileID: 0}
+  showStartTransition: 1
+  showEndTransition: 1
+  backgroundMusic:
+    Guid:
+      Data1: -301259222
+      Data2: 1277860019
+      Data3: 1237361537
+      Data4: 1037806059
+    Path: event:/Ambient/Minigames/GlyphsMus
+  backgroundAmbience:
+    Guid:
+      Data1: -1763436871
+      Data2: 1125225424
+      Data3: 272202127
+      Data4: 58482719
+    Path: event:/Ambient/Minigames/GlyphsAmb
+  sceneName: 
+  type: 0
+  nextScenario: {fileID: 0}
+  introTitle: 
+  introText: 
+  outroTitle: 
+  outroText: 
+  contentPrefab: {fileID: 0}
+  rewardBG: {fileID: 0}
+  twoRingSetup: 0
+  smallRingsAmount: 5
+  firstHintRandomPlaced: 1
+  hintPlacement: 1

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6eb684f7-7f6c-43a0-87d3-1191b14e1487}">
+		<property name="assetPath">
+			<value>Arcade Click Negative 16 - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3149999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20ac507a-d205-4d00-8c11-83e1db30033a}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: 07883c0c2cfce8740969563adaacea10
+  m_SerializeEntries:
+  - m_GUID: 14938e82c5ce87f43918f686095713d5
+    m_Address: Assets/ScriptableObjects/Scenarios/ScenarioEntityGlyphs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scenario
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 394083f11fd73fb4f8dc548689bcc993
+    m_Address: Assets/ScriptableObjects/GameEvents/ContentLoaded.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b520adbf1d9a2f43951d5cd51da414b
+    m_Address: Assets/ScriptableObjects/GameEvents/MinigameRestarted.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1149dbe0dc21eb4fab065b0222ba1a4
+    m_Address: Assets/ScriptableObjects/GameEvents/MinigameSolved.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameEvent
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a59428e3fc52cd940a4c5b5dd8d5f710, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: aadce0ce9ed6ef34b9f61f3db78962a7, type: 2}
+    - {fileID: 11400000, guid: 49c5376c27dc4084a96ebbc8ea54a7ea, type: 2}

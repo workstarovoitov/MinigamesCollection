@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de555ce30e9cd9a4686fcd714942c32b, type: 3}
+  m_Name: PredictionEntity
+  m_EditorClassIdentifier: 
+  predictions:
+  - Clarity will come with patience and observation. The answers you seek are closer
+    than they appear.
+  - A small step forward will open new opportunities. Trust that progress is being
+    made.
+  - Balance and calmness will guide you through. Take a moment to center yourself.
+  - Unexpected support may arrive when you least expect it. Be open to receiving
+    help.
+  - Your efforts are quietly building momentum. Keep going, even if the results seem
+    subtle.
+  - An answer lies in simplicity - look closer. The solution is not as complex as
+    it seems.
+  - A familiar path might reveal something new. Look at your surroundings with fresh
+    eyes.
+  - Trust in the process; everything aligns in its time. Stay patient as the pieces
+    fall into place.
+  - A thoughtful pause will bring greater understanding. Take a moment to reflect
+    and recharge.
+  - What you seek is already beginning to unfold. Notice the small signs of progress
+    around you.
+  - The road ahead may twist, but it leads to growth. Embrace the journey with an
+    open heart.
+  - A moment of stillness will reveal new ideas. Allow yourself time to think freely.
+  - "The effort you\u2019ve invested is planting seeds. Trust that they will bloom
+    in time."
+  - What seems uncertain now will become clearer soon. Keep moving forward with intention.
+  - A connection you make will bring fresh insight. Be open to conversations and
+    new perspectives.
+  - Your instincts are guiding you in the right direction. Trust the quiet voice
+    within.
+  - Even small changes can lead to significant transformations. Take one step at
+    a time.
+  - Your creativity holds the key to a breakthrough. Let your imagination lead the
+    way.
+  - The answers you seek are unfolding naturally. Trust the process and stay curious.
+  - An unexpected twist will work in your favor. Be ready to adapt and embrace it.
+  - Moments of uncertainty often bring the greatest clarity. Stay present and observe.
+  - Your patience is creating space for something wonderful. Stay steady and optimistic.
+  - The effort you put in now will yield rewards. Keep nurturing your goals with
+    care.
+  - A surprising opportunity will come into view. Stay open and ready to seize it.
+  - What you need is already within you. Trust yourself and take the next step.

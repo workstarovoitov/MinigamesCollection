@@ -12,12 +12,6 @@ public class GameManager : Singleton<GameManager>
     private InputController inputController;
     public InputController InputController { get => inputController; }
 
-    //private SaveController saveController;
-    //public SaveController SaveController { get => saveController; }
-
-    //private StatisticsController statisticsController;
-    //public StatisticsController StatisticsController { get => statisticsController; }
-
     private DebugController debugController;
     public DebugController DebugController { get => debugController; }
 
@@ -27,23 +21,17 @@ public class GameManager : Singleton<GameManager>
     private PauseController pauseController;
     public PauseController PauseController { get => pauseController; }
 
-    public bool DebugEnabled { get => debugController.DebugEnabled; }
-
-    [SerializeField] private ScenarioEntity currentScenario;
-    [SerializeField] private ScenarioEntity nextScenario;
-
+    private ScenarioEntity currentScenario;
     public ScenarioEntity CurrentScenario { get => currentScenario; }
-    public SceneType CurrentSceneType { get => currentScenario == null ? SceneType.Default : currentScenario.Type; }
+    ScenarioEntity nextScenario;
+    private GameObject content;
+    private bool forcedTransition;
+    public bool DebugEnabled { get => debugController.DebugEnabled; }
 
     [SerializeField] private ScenarioEntity transitionToMenu;
 
     [SerializeField] private GameEvent contentReady;
     [SerializeField] private GameEvent sceneReady;
-
-    private GameObject content;
-    public GameObject Content { get => content; set => content = value; }
-
-    private bool forcedTransition = false;
 
     void Awake()
     {
@@ -58,7 +46,10 @@ public class GameManager : Singleton<GameManager>
 
     private void OnSceneWasLoaded(Scene oldScene, Scene newScene)
     {
-        if (currentScenario.ContentPrefab != null) content = Instantiate(currentScenario.ContentPrefab);
+        if (currentScenario.ContentPrefab != null)
+        {
+            content = Instantiate(currentScenario.ContentPrefab);
+        }
         contentReady?.Invoke();
     }
 
@@ -77,8 +68,6 @@ public class GameManager : Singleton<GameManager>
     {
         settingsController = GetComponentInChildren<SettingsController>();
         inputController = GetComponentInChildren<InputController>();
-        //saveController = GetComponentInChildren<SaveController>();
-        //statisticsController = GetComponentInChildren<StatisticsController>();
         debugController = GetComponentInChildren<DebugController>();
         popupController = GetComponentInChildren<PopupsManager>();
         pauseController = GetComponentInChildren<PauseController>();
@@ -128,14 +117,12 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadDefaultSave()
     {
-        //saveController.LoadDefaultState();
     }
 
     public void LoadAutoSave()
     {
-        //saveController.LoadAutosave();
     }
-    
+
     public void EndScene()
     {
         EndScene(null);
@@ -153,7 +140,7 @@ public class GameManager : Singleton<GameManager>
     public void RestartScene()
     {
         Log("Scenario <b>" + currentScenario.ScenarioPartTitle + "</b> restarted", MessageCategory.State);
-       
+
         forcedTransition = true;
         StartNextScenario(currentScenario);
     }
@@ -164,7 +151,7 @@ public class GameManager : Singleton<GameManager>
 
         nextScenario = newScenario;
         Log("Scenario <b>" + currentScenario.ScenarioPartTitle + "</b> switched to <b>" + nextScenario.ScenarioPartTitle + "</b>", MessageCategory.State);
-       
+
         forcedTransition = true;
         StartNextScenario(nextScenario);
     }

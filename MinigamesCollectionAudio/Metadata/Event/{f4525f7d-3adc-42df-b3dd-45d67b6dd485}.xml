@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{f4525f7d-3adc-42df-b3dd-45d67b6dd485}">
 		<property name="name">
-			<value>TarotSolved</value>
+			<value>GlyphsSolved</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{366bb34d-a5bd-486e-9a02-abbcc3573863}</destination>
+			<destination>{d520874f-2da3-4662-abc8-8041ed3d4923}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{77a2db77-a056-40df-bcde-f77d0b06e9a3}</destination>
@@ -72,9 +72,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c7910eaa-4845-4d4c-a0db-59ef8269fa8f}">
-		<property name="volume">
-			<value>-15.5</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{17f2727c-f260-484c-88c7-d7352873c56d}</destination>
 		</relationship>

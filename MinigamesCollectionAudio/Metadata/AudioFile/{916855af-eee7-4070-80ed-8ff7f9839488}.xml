@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{916855af-eee7-4070-80ed-8ff7f9839488}">
+		<property name="assetPath">
+			<value>Generic Click Glass Tiny 19.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.2426666666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20ac507a-d205-4d00-8c11-83e1db30033a}</destination>
+		</relationship>
+	</object>
+</objects>

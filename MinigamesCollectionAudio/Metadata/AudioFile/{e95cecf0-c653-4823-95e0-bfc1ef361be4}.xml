@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e95cecf0-c653-4823-95e0-bfc1ef361be4}">
+		<property name="assetPath">
+			<value>Arcade Click Negative 14.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.857333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20ac507a-d205-4d00-8c11-83e1db30033a}</destination>
+		</relationship>
+	</object>
+</objects>

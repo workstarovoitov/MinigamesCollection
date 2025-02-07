@@ -15,6 +15,7 @@ public enum FadeState
 public class UIAlphaFader : MonoBehaviour
 {
     [SerializeField] private float startDelay = 0f;
+    public float StartDelay { get => startDelay; set => startDelay = value; }
     [SerializeField] private float fadeInDuration = 1f;
     public float FadeInDuration { set => fadeInDuration = value; }
     [SerializeField] private Ease fadeInEase = Ease.Linear;

@@ -47,12 +47,8 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Shoot(string sfxPath)
     {
-        // If the string is null or empty, return early
         if (string.IsNullOrEmpty(sfxPath)) return;
-
-        // Check if the event path is valid
         if (RuntimeManager.PathToEventReference(sfxPath).IsNull) return;
-
         RuntimeManager.PlayOneShot(sfxPath);
     }
 
@@ -77,7 +73,6 @@ public class SoundManager : Singleton<SoundManager>
         if (eventRef.IsNull) return;
         foreach (var soundClip in soundList)
         {
-            // Assuming EventReference has some method or property for comparison
             if (soundClip.eventRef.Equals(eventRef))
             {
                 if (parameters == null || parameters.Length == 0) return;
@@ -112,7 +107,6 @@ public class SoundManager : Singleton<SoundManager>
         if (eventRef.IsNull) return;
         foreach (var soundClip in soundList)
         {
-            // Assuming EventReference has some method or property for comparison
             if (soundClip.eventRef.Equals(eventRef))
             {
                 if (soundClip.eventInstance.isValid())
@@ -128,11 +122,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public virtual void PlayBackgroundMusic(EventReference eventRefMusic)
     {
-        //RuntimeManager.StudioSystem.setParameterByName("TimeOfDay", (float)CurrentTimeOfDay);
         if (!eventRefMusic.IsNull)
         {
             bgMusic.stop(0);
-
             bgMusic = RuntimeManager.CreateInstance(eventRefMusic);
             bgMusic.start();
             bgMusic.release();
@@ -141,11 +133,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public virtual void PlayBackgroundAmbience(EventReference eventRefAmbience)
     {
-        //RuntimeManager.StudioSystem.setParameterByName("TimeOfDay", (float)CurrentTimeOfDay);
         if (!eventRefAmbience.IsNull)
         {
             bgAmbience.stop(0);
-
             bgAmbience = RuntimeManager.CreateInstance(eventRefAmbience);
             bgAmbience.start();
             bgAmbience.release();

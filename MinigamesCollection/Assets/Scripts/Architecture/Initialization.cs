@@ -35,7 +35,7 @@ namespace Architecture
                 baseType = item.GetType().BaseType.ToString();
 #endif
 
-                if (baseType.Contains("Singleton") && baseType.Contains("Architecture"))
+                if (baseType.Contains("Singleton"))
                 {
                     MethodInfo m;
 
