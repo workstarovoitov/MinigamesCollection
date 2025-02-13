@@ -45,6 +45,7 @@ public class InputController : MonoBehaviour, IService
 
     private void Awake()
     {
+        ServiceLocator.Register(this);
         actions = new InputActions();
     }
 

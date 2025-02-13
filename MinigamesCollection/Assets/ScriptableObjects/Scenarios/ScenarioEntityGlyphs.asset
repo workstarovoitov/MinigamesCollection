@@ -39,7 +39,7 @@ MonoBehaviour:
       Data4: 58482719
     Path: event:/Ambient/Minigames/GlyphsAmb
   sceneName: 
-  type: 0
+  type: 3
   nextScenario: {fileID: 0}
   introTitle: 
   introText: 
@@ -47,7 +47,8 @@ MonoBehaviour:
   outroText: 
   contentPrefab: {fileID: 0}
   rewardBG: {fileID: 0}
-  twoRingSetup: 0
-  smallRingsAmount: 5
   firstHintRandomPlaced: 1
   hintPlacement: 1
+  settings: 1
+  twoRingSetup: 0
+  smallRingsAmount: 5

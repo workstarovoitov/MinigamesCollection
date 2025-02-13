@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21f4ff8f6f6f114bb4c1d0982721a74, type: 3}
+  m_Name: 04_42
+  m_EditorClassIdentifier: 
+  type: 1
+  teeth: 42
+  gearRadius: 3.225
+  tipRadius: 3.6
+  pinRadius: 1.25
+  baseSprite: {fileID: 21300000, guid: 3f1aca3b18e0e2045b7ae4043af61045, type: 3}
+  outlineThickness: 0.065
+  outlineInnerRadius: 0.26

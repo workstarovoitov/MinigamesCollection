@@ -129,13 +129,12 @@ public class GlyphsSceneController : Singleton<GlyphsSceneController>
         RingController.ringClicked += SwitchGlyphPositions;
     }
 
-
     void Start()
     {
         DOTween.SetTweensCapacity(5000, 50);
         cameraSize = sceneCamera.orthographicSize;
-        SoundManager.Instance.PlayBackgroundMusic(backgroundMusic);
-        SoundManager.Instance.PlayBackgroundAmbience(backgroundAmbience);
+        SoundManager.Instance.PlayBackgroundMusic(currentScenario.BackgroundMusic);
+        SoundManager.Instance.PlayBackgroundAmbience(currentScenario.BackgroundAmbience);
     }
 
     private void LoadContent()
@@ -763,6 +762,21 @@ public class GlyphsSceneController : Singleton<GlyphsSceneController>
                 break;
         }
 
+        LoadContent();
+    }
+
+    public void StartGame(ScenarioEntityGlyphs newScenario)
+    {
+        SoundManager.Instance.Shoot(onStartEventRef);
+        currentScenario = newScenario;
+
+        if (currentScenario == null)
+        {
+            Debug.LogError("Current scenario is not set");
+        }
+
+        twoRingSetup = currentScenario.TwoRingSetup;
+        smallRingsAmount = currentScenario.SmallRingsAmount;
         LoadContent();
     }
 

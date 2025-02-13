@@ -1096,6 +1096,94 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Gears"",
+            ""id"": ""7f2f8bd3-e07b-40b6-8c25-dbc6ca33ad1a"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8f2228a-a7f0-435c-8992-8694bf5b88d7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ccc4264-b40e-4138-b471-704331f7eafc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""384986eb-3015-4121-806a-52fafb569ade"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f759c59-2a23-4a78-82f2-d9a12b02d961"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""dd4ec3e2-61aa-4662-808d-f90a7452d1bb"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0004aa6c-3867-4dc0-bbb8-a94b7eb431ab"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cd7449c-10e1-4ebd-9e48-33a9e91a987f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3600bb95-11cf-42ee-a168-a4eaa05ca6e0"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1186,12 +1274,19 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_ScrollSlider = m_UI.FindAction("ScrollSlider", throwIfNotFound: true);
         m_UI_Anykey = m_UI.FindAction("Anykey", throwIfNotFound: true);
+        // Gears
+        m_Gears = asset.FindActionMap("Gears", throwIfNotFound: true);
+        m_Gears_Movement = m_Gears.FindAction("Movement", throwIfNotFound: true);
+        m_Gears_Select = m_Gears.FindAction("Select", throwIfNotFound: true);
+        m_Gears_Back = m_Gears.FindAction("Back", throwIfNotFound: true);
+        m_Gears_ToInventory = m_Gears.FindAction("ToInventory", throwIfNotFound: true);
     }
 
     ~@InputActions()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputActions.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputActions.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Gears.enabled, "This will cause a leak and performance issues, InputActions.Gears.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -1493,6 +1588,76 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Gears
+    private readonly InputActionMap m_Gears;
+    private List<IGearsActions> m_GearsActionsCallbackInterfaces = new List<IGearsActions>();
+    private readonly InputAction m_Gears_Movement;
+    private readonly InputAction m_Gears_Select;
+    private readonly InputAction m_Gears_Back;
+    private readonly InputAction m_Gears_ToInventory;
+    public struct GearsActions
+    {
+        private @InputActions m_Wrapper;
+        public GearsActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Gears_Movement;
+        public InputAction @Select => m_Wrapper.m_Gears_Select;
+        public InputAction @Back => m_Wrapper.m_Gears_Back;
+        public InputAction @ToInventory => m_Wrapper.m_Gears_ToInventory;
+        public InputActionMap Get() { return m_Wrapper.m_Gears; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GearsActions set) { return set.Get(); }
+        public void AddCallbacks(IGearsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GearsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GearsActionsCallbackInterfaces.Add(instance);
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
+            @ToInventory.started += instance.OnToInventory;
+            @ToInventory.performed += instance.OnToInventory;
+            @ToInventory.canceled += instance.OnToInventory;
+        }
+
+        private void UnregisterCallbacks(IGearsActions instance)
+        {
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
+            @ToInventory.started -= instance.OnToInventory;
+            @ToInventory.performed -= instance.OnToInventory;
+            @ToInventory.canceled -= instance.OnToInventory;
+        }
+
+        public void RemoveCallbacks(IGearsActions instance)
+        {
+            if (m_Wrapper.m_GearsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGearsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GearsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GearsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GearsActions @Gears => new GearsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1564,5 +1729,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnScrollSlider(InputAction.CallbackContext context);
         void OnAnykey(InputAction.CallbackContext context);
+    }
+    public interface IGearsActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnToInventory(InputAction.CallbackContext context);
     }
 }

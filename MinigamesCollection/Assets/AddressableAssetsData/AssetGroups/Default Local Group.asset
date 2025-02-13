@@ -26,8 +26,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63d38881dba39cb4c82048292ae3d369
+    m_Address: Assets/ScriptableObjects/Scenarios/Gears3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b520adbf1d9a2f43951d5cd51da414b
     m_Address: Assets/ScriptableObjects/GameEvents/MinigameRestarted.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad32568dc9bd2854c9521546ab4ec854
+    m_Address: Assets/ScriptableObjects/Scenarios/Gears1.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -36,6 +46,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameEvent
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbe2e6985e1fbce47ab1e811bf9fa67b
+    m_Address: Assets/ScriptableObjects/Scenarios/Gears2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a59428e3fc52cd940a4c5b5dd8d5f710, type: 2}
