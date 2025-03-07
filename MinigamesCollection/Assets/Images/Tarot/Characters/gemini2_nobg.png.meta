@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gemini2_nobg_0: 4697045351642978671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

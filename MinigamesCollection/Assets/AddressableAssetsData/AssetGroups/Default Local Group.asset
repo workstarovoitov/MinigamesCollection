@@ -18,7 +18,8 @@ MonoBehaviour:
   - m_GUID: 0ae5b2faba945f94b8891ba945c096b2
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot12.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14938e82c5ce87f43918f686095713d5
     m_Address: Assets/ScriptableObjects/Scenarios/ScenarioEntityGlyphs.asset
@@ -29,57 +30,68 @@ MonoBehaviour:
   - m_GUID: 35ea9473b2bb4194c955629063f271bc
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot9.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 394083f11fd73fb4f8dc548689bcc993
     m_Address: Assets/ScriptableObjects/GameEvents/ContentLoaded.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - GameEvent
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 581eb4cc02700d84e9f1bb7709c911f1
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot2.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63d38881dba39cb4c82048292ae3d369
     m_Address: Assets/ScriptableObjects/Scenarios/Gears3.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b520adbf1d9a2f43951d5cd51da414b
     m_Address: Assets/ScriptableObjects/GameEvents/MinigameRestarted.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - GameEvent
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7af1333f1f884194f816c6e6d90994e1
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot1.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 804b411c439caf446b86ca13e0cd82ff
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot10.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 960b392c5fa2f7d4e99ec956db33781c
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot3.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d35ccd0ae725104e9a489ba1e61c916
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot7.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acd06a74f616f624a91e3490b6a73f99
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot5.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad32568dc9bd2854c9521546ab4ec854
     m_Address: Assets/ScriptableObjects/Scenarios/Gears1.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1149dbe0dc21eb4fab065b0222ba1a4
     m_Address: Assets/ScriptableObjects/GameEvents/MinigameSolved.asset
@@ -90,27 +102,32 @@ MonoBehaviour:
   - m_GUID: cbe2e6985e1fbce47ab1e811bf9fa67b
     m_Address: Assets/ScriptableObjects/Scenarios/Gears2.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdaa9a5db6b3e9146ad3b83b48877a8c
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot6.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e771b946b9e5e404d8f412eb680afac6
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot11.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc4febfa2ff070a44836aa5a5e011f8e
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot4.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdd6b70cde9cf344cbab7d199e2153e2
     m_Address: Assets/ScriptableObjects/Scenarios/Tarot8.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Scenario
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a59428e3fc52cd940a4c5b5dd8d5f710, type: 2}
