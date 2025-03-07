@@ -726,23 +726,7 @@ public class GearsSceneController : Singleton<GearsSceneController>
 
     public void ClearContent()
     {
-        // Clear all gear connections
-        foreach (var gear in gearControllers)
-        {
-            ClearConnection(gear);
-        }
-
-        // Remove all gears and pins from the scene
-        foreach (var gear in gearControllers)
-        {
-            Destroy(gear.gameObject);
-        }
         gearControllers.Clear();
-
-        foreach (var pin in pinControllers)
-        {
-            Destroy(pin.gameObject);
-        }
         pinControllers.Clear();
 
         // Clear the content container
