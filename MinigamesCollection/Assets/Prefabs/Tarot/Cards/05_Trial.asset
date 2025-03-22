@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7e2b0363788cf4aa1ef96e479b2b7c, type: 3}
+  m_Name: 05_Trial
+  m_EditorClassIdentifier: 
+  cardName: Trial
+  description: 
+  portraitTexture: {fileID: -4038966112749891132, guid: c7dd945e32e84cc4593380c08481217e, type: 3}
+  suit: 1

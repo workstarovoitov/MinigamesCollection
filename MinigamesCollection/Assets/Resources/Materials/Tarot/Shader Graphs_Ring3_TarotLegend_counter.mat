@@ -62,7 +62,7 @@ Material:
     - _DotsAmount: 30
     - _Radius: 0.9
     - _RotateSpeed: 1
-    - _ThicknessGlow: 0.025
+    - _ThicknessGlow: 0.01
     - _ThicknessRing: 0.0075
     m_Colors:
     - _ColorGlowInner: {r: 0.57254905, g: 0.69803923, b: 1.4980392, a: 0.78431374}

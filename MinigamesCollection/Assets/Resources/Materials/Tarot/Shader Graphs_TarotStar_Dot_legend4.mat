@@ -57,7 +57,7 @@ Material:
     - _ThicknessGlow: 0.5
     - _ThicknessRing: 1
     m_Colors:
-    - _ColorGlowInner: {r: 0.74509805, g: 0.1254902, b: 0.58431375, a: 1}
-    - _ColorGlowOuter: {r: 0.74509805, g: 0.1254902, b: 0.58431375, a: 1}
+    - _ColorGlowInner: {r: 0.07500002, g: 0.75, b: 0.07500002, a: 1}
+    - _ColorGlowOuter: {r: 0, g: 0.5, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

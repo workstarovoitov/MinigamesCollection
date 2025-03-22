@@ -104,6 +104,7 @@ public class TarotSceneController : Singleton<TarotSceneController>
 
     private void GenerateWinCardSuits()
     {
+        int restartCount = 0;
         bool containsEmpty;
 
         do
@@ -139,8 +140,17 @@ public class TarotSceneController : Singleton<TarotSceneController>
             winSuits = requiredSuits.Values.ToList();
 
             // Check if winSuits contains CardSuit.Empty
-            containsEmpty = winSuits.Contains(CardSuit.Empty);
+            containsEmpty = winSuits.Contains(CardSuit.Empty) || winSuits.Count < cardSlots.Count;
+           
+            if (containsEmpty)
+            {
+                restartCount++;
+                Debug.Log($"Restarting GenerateWinCardSuits. Restart count: {restartCount}");
+            }
+
         } while (containsEmpty);
+
+        Debug.Log($"GenerateWinCardSuits completed with {restartCount} restarts.");
     }
 
     private CardSuit GetRandomSuit()
@@ -154,7 +164,7 @@ public class TarotSceneController : Singleton<TarotSceneController>
 
     private void AssignSuits(CardSlot slot, Dictionary<CardSlot, CardSuit> requiredSuits, CardSuit suit, HashSet<CardSlot> visited)
     {
-        if (requiredSuits.ContainsKey(slot) || visited.Contains(slot))
+        if (requiredSuits.ContainsKey(slot))
         {
             return;
         }
@@ -177,8 +187,7 @@ public class TarotSceneController : Singleton<TarotSceneController>
                 {
                     // If not valid, backtrack and try a different suit
                     requiredSuits.Remove(slot);
-                    CardSuit nextSuit = FindValidSuit(suit, slot, requiredSuits);
-                    AssignSuits(slot, requiredSuits, nextSuit, visited);
+                    visited.Remove(slot);
                     return;
                 }
             }
@@ -235,13 +244,17 @@ public class TarotSceneController : Singleton<TarotSceneController>
     private void GenerateWinCards()
     {
         winCards.Clear();
+        List<CardSettings> availableCards = new List<CardSettings>(AllCards);
+        Shuffle(availableCards);
 
         foreach (var suit in winSuits)
         {
-            var matchingCard = AllCards.FirstOrDefault(card => card.Suit == suit);
-            if (matchingCard != null)
+            var matchingCards = availableCards.Where(card => card.Suit == suit).ToList();
+            if (matchingCards.Count > 0)
             {
-                winCards.Add(matchingCard);
+                var selectedCard = matchingCards[UnityEngine.Random.Range(0, matchingCards.Count)];
+                winCards.Add(selectedCard);
+                availableCards.Remove(selectedCard);
             }
             else
             {
@@ -271,6 +284,8 @@ public class TarotSceneController : Singleton<TarotSceneController>
 
     public void UpdateEdges()
     {
+        if (!enabled) return;
+
         foreach (CardSlotEdge cardSlotEdge in cardSlotEdges)
         {
             cardSlotEdge.UpdateEdge();
@@ -278,6 +293,11 @@ public class TarotSceneController : Singleton<TarotSceneController>
 
         if (cardSlotEdges.All(edge => edge.IsConnected))
         {
+            foreach(var card in cardControllers)
+            {
+                card.enabled = false;
+            }
+
             enabled = false;
             SoundManager.Instance.Shoot(onWinEventRef);
             onWinEvent?.Invoke();
@@ -472,6 +492,9 @@ public class TarotSceneController : Singleton<TarotSceneController>
             Debug.LogError("Contents are not set");
             return;
         }
+        
+        ClearContent();
+
         StartCoroutine(WaitForContent());
 
         GameObject content = Instantiate(currentScenario.ContentPrefab, contentContainer.transform);

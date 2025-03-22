@@ -133,8 +133,8 @@ public class GlyphsSceneController : Singleton<GlyphsSceneController>
     {
         DOTween.SetTweensCapacity(5000, 50);
         cameraSize = sceneCamera.orthographicSize;
-        SoundManager.Instance.PlayBackgroundMusic(currentScenario.BackgroundMusic);
-        SoundManager.Instance.PlayBackgroundAmbience(currentScenario.BackgroundAmbience);
+        SoundManager.Instance.PlayBackgroundMusic(backgroundMusic);
+        SoundManager.Instance.PlayBackgroundAmbience(backgroundAmbience);
     }
 
     private void LoadContent()

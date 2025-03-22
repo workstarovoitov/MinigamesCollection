@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RingHoverController : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
+public class RingHoverController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    [SerializeField] private bool unhoverOnExit = false;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         GetComponentInParent<RingController>().HoverRing();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!unhoverOnExit) return;
+        
+        GetComponentInParent<RingController>().UnhoverRing();
     }
     
     public void OnPointerDown(PointerEventData eventData)
